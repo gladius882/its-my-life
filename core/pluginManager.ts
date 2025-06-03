@@ -4,8 +4,8 @@ import path from "path";
 export type PluginDefinition = {
   name: string;
   enabled: boolean;
-  routes: Record<string, () => Promise<any>>;
-  api: Record<string, () => Promise<any>>;
+  routes?: Record<string, () => Promise<any>>;
+  api?: Record<string, () => Promise<any>>;
   hooks?: () => Promise<any>;
 };
 
