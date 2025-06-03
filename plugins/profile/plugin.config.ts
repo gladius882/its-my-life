@@ -5,6 +5,7 @@ const plugin: PluginDefinition = {
 	enabled: true,
 	routes: {
 		"/profile": () => import("./routes/profile/page"),
+		"/profile/preferences": () => import('./routes/preferences/page')
 	},
 	// api: {
 	// 	"/api/profile": () => import("./api/route"),
