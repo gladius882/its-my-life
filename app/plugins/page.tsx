@@ -1,6 +1,12 @@
 import { getEnabledPlugins } from "@/core/pluginManager";
+import db from "@/db";
+import { users } from "@/db/schema";
 
-export default function PluginList() {
+
+export default async function PluginList() {
+
+    const allUsers = await db.select().from(users);
+
     const plugins = getEnabledPlugins();
     return (
         <main className="p-4">
@@ -12,6 +18,10 @@ export default function PluginList() {
                     </li>
                 ))}
             </ul>
+
+            <pre>
+                {JSON.stringify(allUsers)}
+            </pre>
         </main>
     );
 }
