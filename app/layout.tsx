@@ -1,11 +1,19 @@
-import { loadPlugins } from "@/core/pluginManager";
 import { ReactNode } from "react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-  await loadPlugins();
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+	const session = await getServerSession(authOptions);
+
+	if(!session) {
+		return (
+			<h1>Unauthorized</h1>
+		)
+	}
+
+	return (
+		<html lang="en">
+			<body>{children}</body>
+		</html>
+	);
 }
