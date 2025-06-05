@@ -1,4 +1,4 @@
-import { pgTable, pgEnum, serial, text, timestamp, integer, } from "drizzle-orm/pg-core";
+import { pgTable, pgEnum, serial, text, timestamp, integer, boolean } from "drizzle-orm/pg-core";
 
 export const pluginStateEnum = pgEnum("pluginState", ["ready", "installed", "uninstalled"])
 
@@ -13,9 +13,16 @@ export const users = pgTable("users", {
 export const plugins = pgTable("plugins", {
     id: serial("id").primaryKey(),
     name: text("name").notNull(),
+    enabled: boolean("enabled").default(false),
     displayName: text("display_name").notNull(),
     state: pluginStateEnum().default("ready"),
     
+})
+
+export const pluginsRoutes = pgTable("plugins_routes", {
+    id: serial("id").primaryKey(),
+    route: text("route").notNull(),
+    component: text("component").notNull(),
 })
 
 export const hooks = pgTable("hooks", {
