@@ -8,13 +8,10 @@ export default withAuth(
   function middleware(req: NextRequest) {
     const { pathname } = req.nextUrl;
 
-    // Jeśli ścieżka jest publiczna, przepuść
     if (publicPaths.includes(pathname)) {
       return NextResponse.next();
     }
 
-    // W przeciwnym razie withAuth sprawdzi sesję
-    // (Jeśli sesji nie ma — automatycznie przekieruje na login)
     return NextResponse.next();
   },
   {
@@ -22,13 +19,13 @@ export default withAuth(
       authorized: ({ token, req }) => {
         const { pathname } = req.nextUrl;
         if (publicPaths.includes(pathname)) {
-          return true; // strona publiczna — nie wymaga tokena
+          return true;
         }
-        return !!token; // strona prywatna — wymagany token (czyli zalogowany użytkownik)
+        return !!token;
       },
     },
     pages: {
-      signIn: "/login", // Dokąd przekierować niezalogowanych
+      signIn: "/login",
     },
   }
 );
