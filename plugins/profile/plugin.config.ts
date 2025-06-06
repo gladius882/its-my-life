@@ -1,6 +1,6 @@
 import type { PluginDefinition } from "@/core/pluginManager";
 
-const plugin: PluginDefinition = {
+const definition: PluginDefinition = {
 	name: "plugin-profile",
 	enabled: true,
 	routes: {}
@@ -14,4 +14,13 @@ const plugin: PluginDefinition = {
 	// hooks: () => import("./hooks"),
 };
 
-export default plugin;
+
+export const install = () => {
+
+}
+
+export const uninstall = () => {
+
+}
+
+export default definition;
