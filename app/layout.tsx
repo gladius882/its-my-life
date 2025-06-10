@@ -11,14 +11,16 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 	return (
 		<html lang="en">
 			<Providers>
-			<body className="flex">
+			<body className="flex flex-grow">
 
 				<Navigation />
 
 				<div>
 					<div>Topbar</div>
 
-					<main>{children}</main>
+					<main className="bg-[#F5F6FA]">
+						{children}
+					</main>
 				</div>
 			</body>
 			</Providers>
