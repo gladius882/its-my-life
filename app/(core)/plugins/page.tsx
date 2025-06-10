@@ -14,7 +14,7 @@ export default async function PluginList() {
         <main className="p-4">
             <h1 className="text-xl font-bold">Pluginy</h1>
                 {plugins.map((p) => (
-                    <PluginTile name={p.name} key={p.name} />
+                    <PluginTile name={p.name} enabled={p.enabled} />
                 ))}
 
             

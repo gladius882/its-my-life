@@ -13,9 +13,6 @@ const LoginPage = () => {
         const login = form.get('login') as string;
         const password = form.get('password') as string
 
-        console.log(`Login: ${login}`);
-        console.log(`Password: ${password}`);
-
         const res = await signIn("credentials", {
             redirect: false,
             login,
