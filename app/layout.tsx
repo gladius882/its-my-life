@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Providers } from "./providers";
 import { loadPlugins } from "@/core/pluginManager";
+import "./globals.css"
+import Navigation from "@/components/Navigation";
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
 
@@ -10,9 +10,18 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
 	return (
 		<html lang="en">
-			<body>
-				<Providers>{children}</Providers>
+			<Providers>
+			<body className="flex">
+
+				<Navigation />
+
+				<div>
+					<div>Topbar</div>
+
+					<main>{children}</main>
+				</div>
 			</body>
+			</Providers>
 		</html>
 	);
 }
