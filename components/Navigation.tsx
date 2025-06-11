@@ -3,7 +3,7 @@ import NavigationItem from "./NavigationItem";
 
 const Navigation = () => {
     return (
-        <nav className="flex flex-col w-1/8 pl-10 gap-5 box-border">
+        <nav className="flex flex-col w-1/8 pl-10 box-border">
             
             <div className="font-bold text-lg">
                 It's My Life

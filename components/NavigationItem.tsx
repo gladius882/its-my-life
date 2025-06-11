@@ -8,11 +8,10 @@ const NavigationItem = ({
     route, text
 }: NavigationItemProps) => {
     return (
-        <div className="">
-            <a href={route} className="bg-[#ffffff] color-black hover:bg-[#4880FF] py-3">
+
+            <a href={route} className="bg-[#ffffff] color-black hover:bg-[#4880FF] py-2 pl-2 box border-box">
                 {text}
             </a>
-        </div>
     )
 }
 

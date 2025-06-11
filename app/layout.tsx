@@ -14,13 +14,13 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 			<Providers>
 				<body>
 
-					<div id="container" className="flex flex-grow">
+					<div id="container" className="flex flex-grow h-full min-h-screen">
 						<Navigation />
 
 						<div className="w-full">
 							<TopBar />
 
-							<main className="bg-[#F5F6FA]">
+							<main className="bg-[#F5F6FA] h-full p-5">
 								{children}
 							</main>
 						</div>
