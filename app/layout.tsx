@@ -4,6 +4,7 @@ import { loadPlugins } from "@/core/pluginManager";
 import "./globals.css"
 import Navigation from "@/components/Navigation";
 import TopBar from "@/components/TopBar";
+import Head from "@/components/Head";
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
 
@@ -11,6 +12,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
 	return (
 		<html lang="en">
+
+			<Head />
+
 			<Providers>
 				<body>
 
